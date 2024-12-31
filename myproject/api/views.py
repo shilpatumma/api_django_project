@@ -10,9 +10,11 @@ from django.views.generic import TemplateView
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().order_by()  # Ordering by 'id', you can change this as needed
+    # queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    # pagination_class = None  # Optional: Pagination can be disabled at the view level
 
     @action(detail=False, methods=['get'])
     def recent_products(self, request):
