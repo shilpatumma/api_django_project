@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render 
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -44,3 +44,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+
+
+def temper(request):
+    return render(request, "temp.html")
